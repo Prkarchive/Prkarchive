@@ -2,9 +2,24 @@
 <html>
 <head>
   <title>Religion</title>
+  <script>
+    function handleFileUpload() {
+      // Get the file upload input element
+      var fileInput = document.getElementById('fileInput');
+      var file = fileInput.files[0];
+      
+      // Perform file upload logic
+      // ...
+    }
+  </script>
 </head>
 <body>
   <h1>Religion</h1>
   <!-- Add your content related to religion here -->
-
-</body></html>
+  
+  <!-- Upload Form -->
+  <h2>Upload Document</h2>
+  <input type="file" id="fileInput" accept=".doc,.docx">
+  <button onclick="handleFileUpload()">Upload</button>
+</body>
+</html>
