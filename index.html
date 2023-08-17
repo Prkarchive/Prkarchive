@@ -1,7 +1,7 @@
 <!doctype html>
-<html>
-<head>
-  <title>Philosophical Religious Knowledge Archive</title>
+<html> 
+ <head> 
+  <title>Philosophical Religious Knowledge Archive</title> 
   <style>
     /* CSS styles for the website */
     /* Add your own styles here */
@@ -19,6 +19,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      height: 25vh;
     }
     .option {
       margin: 10px 0;
@@ -31,7 +32,7 @@
       color: white;
     }
     .forum {
-      max-height: 75vh;
+      height: 75vh;
       overflow-y: scroll;
       padding: 10px;
     }
@@ -59,7 +60,7 @@
       padding: 5px 10px;
       cursor: pointer;
     }
-  </style>
+  </style> 
   <script>
     function showPostInput() {
       var postInput = document.getElementById("post-input");
@@ -73,42 +74,44 @@
         var postContainer = document.createElement("div");
         postContainer.className = "post-container";
         postContainer.innerHTML = "<p>" + message + "</p>";
-        forum.appendChild(postContainer);
+        forum.insertBefore(postContainer, forum.firstChild);
         document.getElementById("message").value = "";
       }
     }
-  </script>
-</head>
-<body>
-  <!-- Homepage -->
-  <div class="header">
-    <h1>Philosophical Religious Knowledge Archive</h1>
-  </div>
-  <div class="options">
-    <div class="option">
-      <a href="religion.html">Religion</a>
-    </div>
-    <div class="option">
-      <a href="philosophy_of_theism.html">Philosophy of Theism</a>
-    </div>
-    <div class="option">
-      <a href="philosophy_of_mind.html">Philosophy of Mind</a>
-    </div>
-    <div class="option">
-      <a href="secular_metaphysics.html">Secular Metaphysics</a>
-    </div>
-    <div class="option forum-option">
-      <a href="javascript:void(0);" onclick="showPostInput()">Forum</a>
-    </div>
-  </div>
+  </script> 
+ </head> 
+ <body> <!-- Homepage --> 
+  <div class="header"> 
+   <h1>Philosophical Religious Knowledge Archive</h1> 
+  </div> 
+  <div class="options"> 
+   <div class="option"> <a href="religion.html">Religion</a> 
+   </div> 
+   <div class="option"> <a href="philosophy_of_theism.html">Philosophy of Theism</a> 
+   </div> 
+   <div class="option"> <a href="philosophy_of_mind.html">Philosophy of Mind</a> 
+   </div> 
+   <div class="option"> <a href="secular_metaphysics.html">Secular Metaphysics</a> 
+   </div> 
+   <div class="option forum-option"> <a href="forum.html">Forum</a> 
+   </div> 
+  </div> <!-- Forum Section --> 
+  <div id="forum" class="forum"> 
+   <div class="post-input" id="post-input"> <textarea id="message" placeholder="Write your post here"></textarea> <button class="post-button" onclick="postMessage()">Post</button> 
+   </div> 
+  </div> 
+  <script>
+    var forumOption = document.querySelector('.forum-option');
+    forumOption.addEventListener('click', function() {
+      var forum = document.getElementById('forum');
+      forum.style.display = 'block';
 
-  <!-- Forum Section -->
-  <div id="forum" class="forum">
-    <div class="post-input" id="post-input">
-      <textarea id="message" placeholder="Write your post here"></textarea>
-      <button class="post-button" onclick="postMessage()">Post</button>
-    </div>
-  </div>
+      // Scroll to the bottom of the forum
+      forum.scrollTop = forum.scrollHeight;
 
-
-</body></html>
+      // Show the post input
+      showPostInput();
+    });
+  </script> 
+ </body>
+</html>
